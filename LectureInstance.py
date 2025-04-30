@@ -20,7 +20,7 @@ def Lecture(chemin):
     return Region, Sanctuaire
 
 
-print(Lecture('15_9.txt'))
+#print(Lecture('15_9.txt'))
 
 
 
