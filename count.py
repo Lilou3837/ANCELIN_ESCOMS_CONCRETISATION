@@ -13,7 +13,7 @@ ressource ={'r' : 0,
             'cha' : 0}
 
 
-def sanctuaire_ressource(sanctuaire):
+def sanctuaires_ressources(sanctuaire):
     """
     comptage des ressources des sanctuaires
     sanctuaire : list de int (valeur des cartes sanctuaires)
@@ -30,7 +30,7 @@ def sanctuaire_ressource(sanctuaire):
             ressource[m] += carte.merveille[m]
 
 
-def region_ressourses_et_points(region):
+def regions_ressourses_et_points(region):
     """
     comptage ressources et points des cartes regions
     region : list de int (valeur des cartes regions)
@@ -60,7 +60,7 @@ def region_ressourses_et_points(region):
                 else :
                     point += carte.score[s] * ressource[s]
 
-def sanctuaire_point(sanctuaire):
+def sanctuaires_points(sanctuaire):
     """
     comptage ressources et points des cartes sanctuaires
     region : list de int (valeur des cartes sanctuaires)
@@ -79,7 +79,7 @@ def sanctuaire_point(sanctuaire):
 
 
 def comptage(region, sanctuaire):
-    sanctuaire_ressource(sanctuaire)
-    region_ressourses_et_points(region)
-    sanctuaire_point(sanctuaire)
+    sanctuaires_ressources(sanctuaire)
+    regions_ressourses_et_points(region)
+    sanctuaires_points(sanctuaire)
     return ressource, point
