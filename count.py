@@ -1,4 +1,5 @@
 from cards import *
+from LectureInstance import *
 
 point=0
 ressource ={'r' : 0,
@@ -29,7 +30,7 @@ def sanctuaire_ressource(sanctuaire):
             ressource[m] += carte.merveille[m]
 
 
-def region(region):
+def region_ressourses_et_points(region):
     """
     comptage ressources et points des cartes regions
     region : list de int (valeur des cartes regions)
@@ -69,7 +70,9 @@ def sanctuaire_point(sanctuaire):
         carte = T[sanctuaire[i]]
         ens = min([ressource['r'], ressource['b'], ressource['j'], ressource['v']])
         for s in carte.score:
-                if s == 'e' :
+                if s == 'a' :
+                    point += carte.score[s]
+                elif s == 'e' :
                     point += carte.score[s] * ens
                 else :
                     point += carte.score[s] * ressource[s]
@@ -77,6 +80,6 @@ def sanctuaire_point(sanctuaire):
 
 def comptage(region, sanctuaire):
     sanctuaire_ressource(sanctuaire)
-    region(region)
+    region_ressourses_et_points(region)
     sanctuaire_point(sanctuaire)
-    return ressource
+    return ressource, point
