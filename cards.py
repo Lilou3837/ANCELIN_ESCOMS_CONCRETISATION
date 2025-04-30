@@ -3,7 +3,13 @@
 ####
 
 class Card:
-    def __init__ (self, couleur, nuit, indice, merveille, score, condition):
+    def __init__ (self, 
+                  couleur: str, 
+                  nuit: int, 
+                  indice: int,
+                  merveille: dict, 
+                  score: dict, 
+                  condition: dict):
         """
         couleur : str
         nuit : int, 0 ou 1

@@ -1,6 +1,6 @@
 from cards import *
 
-def Lecture(chemin):
+def Lecture(chemin: str):
     """
     Lis une instance et renvoie les 2 tableaux de régions et de sanctuaires
     chemin : str, nom du fichier.txt
