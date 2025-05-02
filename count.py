@@ -1,5 +1,4 @@
 from cards import *
-from LectureInstance import *
 
 point=0
 ressource ={'r' : 0,
