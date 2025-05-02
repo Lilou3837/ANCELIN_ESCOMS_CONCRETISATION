@@ -1,5 +1,3 @@
-from cards import *
-
 def Lecture(chemin: str):
     """
     Lis une instance et renvoie les 2 tableaux de régions et de sanctuaires
