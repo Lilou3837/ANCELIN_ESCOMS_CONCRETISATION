@@ -85,7 +85,7 @@ def comptage(region: list, sanctuaire: list):
     sanctuaire_ressource(sanctuaire)
     region_ressourses_et_points(region)
     sanctuaire_point(sanctuaire)
-    score = point
+    score, dick = point, ressource
     point = 0
     ressource ={'r' : 0,
             'b' : 0, 
@@ -96,4 +96,4 @@ def comptage(region: list, sanctuaire: list):
             'p' : 0, 
             'chi' : 0, 
             'cha' : 0}
-    return score
+    return score, dick
