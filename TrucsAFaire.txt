@@ -1,0 +1,7 @@
+faire un __repr__() aux cartes 
+
+écrire les résultats dans un ptn de fichier texte
+
+s'interroger encore 30s sur les ierators
+
+algo de con de sélection
