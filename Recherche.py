@@ -16,25 +16,30 @@ def RechercheGlouton(chemin: str):
     q=0
     s=0
     maximum=[42,42,0,42]
-    combi_sanctu=[tuple(combinations(S,i)) for i in range(5,8)]
+    nbSancRequis = 5
+    combi_sanctu=[tuple(combinations(S,i)) for i in range(nbSancRequis,8)]
     permu_region=permutations(R,8)
 
     for re in permu_region:
-        s+=1
+        #s+=1
         #if perf_counter() - start >= 12.05: break
+
         couples_ordonnais = 0
         for i in range(1,8):
             if re[i]>re[i-1] : couples_ordonnais += 1
-        if couples_ordonnais>=5:
-            for san in combi_sanctu[couples_ordonnais-5]:
-                q+=1
+
+        if couples_ordonnais>=nbSancRequis:
+            for san in combi_sanctu[couples_ordonnais-nbSancRequis]:
+                #q+=1
                 pts, ress = comptage(re,san)
                 if pts > maximum[2]:
                     maximum = [re, san, pts, ress]
-    return maximum, perf_counter()-start,s,q
-
-
-print(RechercheGlouton('test.txt'))
+    #print(s,q)
+    timeh = perf_counter()-start
+    Ecriture("BigHistory.txt", (R,S), (maximum, timeh))
+    #return maximum, timeh
+    
+RechercheGlouton('test.txt')
 
 
 
