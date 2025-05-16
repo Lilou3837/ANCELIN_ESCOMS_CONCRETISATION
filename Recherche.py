@@ -1,5 +1,6 @@
 from time import perf_counter
 from count import comptage
+from cards import *
 from LectureInstance import *
 from itertools import permutations,combinations
 
@@ -37,15 +38,25 @@ def RechercheGlouton(chemin: str):
     #print(s,q)
     timeh = perf_counter()-start
     Ecriture("BigHistory.txt", (R,S), (maximum, timeh))
-    #return maximum, timeh
+    return maximum, timeh
     
-RechercheGlouton('test.txt')
+M,temps=RechercheGlouton('test.txt')
+
+def AffichageReprCartes(M,temps):
+    global T
+    R = M[0]
+    S = M[1]
+    Pts = M[2]
+    print('R : ')
+    for r in R:
+        print(T[r])
+
+    print('S : ')
+    for s in S:
+        print(T[s])
 
 
-
-
-
-
+AffichageReprCartes(M,temps)
 
 
 

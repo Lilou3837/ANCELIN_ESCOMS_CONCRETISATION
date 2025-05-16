@@ -27,6 +27,9 @@ class Card:
         self.score = score
         self.condition = condition
 
+    def __repr__(self):
+        return self.couleur+str(self.nuit)+str(self.indice)+str(self.merveille)+str(self.score)+str(self.condition)
+
 T=[None for _ in range(146)]
 # Les indices sont les vraties valeurs utilisées par les cartes, il n'y a donc pas de carte 0 etc
 # Aussi y'a rien en plein milieu du coup heh 

@@ -1,5 +1,5 @@
-faire un __repr__() aux cartes 
+selection 
 
-écrire les résultats dans un ptn de fichier texte : ok
+main
 
-algo de con de sélection
+ODG
