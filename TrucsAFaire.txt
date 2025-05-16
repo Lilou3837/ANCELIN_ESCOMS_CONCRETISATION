@@ -1,7 +1,5 @@
 faire un __repr__() aux cartes 
 
-écrire les résultats dans un ptn de fichier texte
-
-s'interroger encore 30s sur les ierators
+écrire les résultats dans un ptn de fichier texte : ok
 
 algo de con de sélection
