@@ -27,6 +27,7 @@ def Ecriture(fichierEcriture: str, instance: tuple, resultat: tuple):
     fichier = open(fichierEcriture, "a")
 
     fichier.write("Instance : "+str(len(instance[0]))+"_"+str(len(instance[1]))+"\n"   )
+    fichier.write("     Cartes : "+str(instance[0])+" "+str(instance[1])+"\n"   )
     fichier.write("     Temps de resolution : "+str(resultat[1])+" secondes\n" )
     fichier.write("     Resultat :"+str(resultat[0])+"\n\n" )
 
