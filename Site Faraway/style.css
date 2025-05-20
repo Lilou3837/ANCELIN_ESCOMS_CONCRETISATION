@@ -10,7 +10,7 @@ body {
 header {
     height: 80px;
     display: flex;
-    background: linear-gradient(to right,#fcfbf9ff,rgb(122, 45, 103)) ;
+    background: linear-gradient(to right,#fcfbf9ff,rgb(156, 56, 131)) ;
     align-items: center;
     text-align: center;         
     justify-content: center;
@@ -31,7 +31,7 @@ header img {
 header h1 {
     font-size: 30px;
 
-    color: rgb(71, 31, 66);
+    color: rgb(49, 18, 45);
     margin: 0;
 }
 
@@ -95,9 +95,15 @@ footer p {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     min-height: calc(100vh - 145px);
+}
+
+section {
+    padding: 5px 20px;
+    margin: 20px 20px 10px 20px;
+    border-radius: 20px;
+    background-color: white;
 }
 
 .center {
