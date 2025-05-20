@@ -171,6 +171,6 @@ def Selection(R, S):
         return ReductionRegion(R,S,10,RESS)
 
     elif len(R) >= 11 and len(S) >= 8:
-        return ReductionTotale(R,S,11,9)
+        return ReductionTotale(R,S,10,7)
     else: 
         return R,S # Part dans RechercheGlouton
