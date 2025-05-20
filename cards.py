@@ -1,7 +1,3 @@
-####
-####  TOUS LES STR SONT EN MINUSCULES ET AU SINGULIER ET SANS ACCENT NULLE PART
-####
-
 class Card:
     def __init__ (self, 
                   couleur: str, 

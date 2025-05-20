@@ -38,22 +38,22 @@ def ReductionSanctu(R, S, ns, ress):
                     for i in range(len(S)) : # Les sanctuaires
                         sanc = T[S[i]]
                         if sanc.couleur == parqqch : 
-                            SCORES[i] += reg.score[parqqch]
+                            SCORES[i] += reg.score[parqqch]*0.81
                         elif parqqch=='n' and sanc.nuit == 1:
-                            SCORES[i] += reg.score[parqqch]
+                            SCORES[i] += reg.score[parqqch]*0.8
                         elif parqqch=='i' and sanc.indice == 1:
-                            SCORES[i] += reg.score[parqqch]
+                            SCORES[i] += reg.score[parqqch]*0.75
                         elif parqqch in ["p", "chi", "cha"] : 
                             for m in sanc.merveille:
                                 if m==parqqch : 
-                                    SCORES[i] += reg.score[parqqch]
+                                    SCORES[i] += reg.score[parqqch]*0.78
                 for cond in reg.condition: ### CONDITION POUR SCORE  - max 3 éléments
                     for i in range(len(S)) : # Les sanctuaires
                         sanc = T[S[i]]
                         mervSanctu = sanc.merveille
                         if cond in mervSanctu:
                             if ress[cond]*10/len(R) + mervSanctu[cond] >= reg.condition[cond]:
-                                SCORES[i] += 1 # C'est pi sur 2 ;)
+                                SCORES[i] += 1.57 # C'est pi sur 2 ;)
         for i in range(len(S)):
             sanc = T[S[i]]
             for parqqch in sanc.score :
@@ -61,10 +61,10 @@ def ReductionSanctu(R, S, ns, ress):
                     if ress[parqqch] >= sanc.score[parqqch]:
                         SCORES[i] += sanc.score[parqqch]
                 elif parqqch == 'a': # Merci la 121
-                    SCORES[i] += sanc.score[parqqch]
+                    SCORES[i] += sanc.score[parqqch] * 0.7
                 else: # parqqch == 'e'
-                    ens = min([ress['r'], ress['b'], ress['j'], ress['v']])
-                    SCORES[i] += sanc.score[parqqch] * ens
+                    ens = min([ress['r']*10/len(R), ress['b']*10/len(R), ress['j']*10/len(R), ress['v']*10/len(R)])
+                    SCORES[i] += sanc.score[parqqch] * 0.8 * ens
         
         S.pop(SCORES.index(min(SCORES)))
         SCORES.pop(SCORES.index(min(SCORES)))
@@ -88,15 +88,15 @@ def ReductionRegion(R, S, nr, ressS):
                     for i in range(len(R)) : # Les régions qui satisferont peut etre ce que demandent les sanctuaires pour leur score
                         reg = T[R[i]]
                         if reg.couleur == parqqch : 
-                            SCORES[i] += sanc.score[parqqch]
+                            SCORES[i] += sanc.score[parqqch]*0.8
                         elif parqqch=='n' and reg.nuit == 1:
-                            SCORES[i] += sanc.score[parqqch]
+                            SCORES[i] += sanc.score[parqqch]*0.8
                         elif parqqch=='i' and reg.indice == 1:
-                            SCORES[i] += sanc.score[parqqch]
+                            SCORES[i] += sanc.score[parqqch]*0.75
                         elif parqqch in ["p", "chi", "cha"] : 
                             for m in reg.merveille:
                                 if m==parqqch : 
-                                    SCORES[i] += sanc.score[parqqch]
+                                    SCORES[i] += sanc.score[parqqch]*0.94
         for i in range(len(R)):
             reg = T[R[i]]         # Régions qui donnent des "conditions" que les autres doivent vérifier
             for parqqch in reg.score :
@@ -104,16 +104,17 @@ def ReductionRegion(R, S, nr, ressS):
                 for c in reg.condition:
                     nb_cond += reg.condition[c] 
                 if parqqch != "a" and parqqch != "e":
-                    if ressS[parqqch] + ressR[parqqch] >= reg.score[parqqch]:
+                    if ressS[parqqch]*7/len(S) + ressR[parqqch]/(0.7*len(R)) >= reg.score[parqqch]:
                         SCORES[i] += reg.score[parqqch]
                 elif parqqch == 'a':
-                    SCORES[i] += reg.score[parqqch]
+                    if nb_cond!=0: SCORES[i] += reg.score[parqqch]/nb_cond + 2
+                    else: SCORES[i] += reg.score[parqqch]+0.6
                 else: # parqqch == 'e'
-                    ens = min([ressS['r']+ressR['r'], 
-                                ressS['b']+ressR['b'], 
-                                ressS['j']+ressR['j'], 
-                                ressS['v']+ressR['v']])
-                    SCORES[i] += reg.score[parqqch] * ens
+                    ens = min([ressS['r']*7/len(S)+ressR['r']/(0.7*len(R)), 
+                                ressS['b']*7/len(S)+ressR['b']/(0.7*len(R)), 
+                                ressS['j']*7/len(S)+ressR['j']/(0.7*len(R)), 
+                                ressS['v']*7/len(S)+ressR['v']/(0.7*len(R))])
+                    SCORES[i] += reg.score[parqqch] * 0.8 * ens
 
             if reg.condition != {}:
                 for cond in reg.condition: ### CONDITION POUR SCORE DES REGIONS  - max 3 éléments
@@ -121,10 +122,10 @@ def ReductionRegion(R, S, nr, ressS):
                         reg2 = T[R[j]]
                         mervRegion = reg2.merveille
                         if cond in mervRegion:
-                            if ressR[cond] + ressS[cond] + mervRegion[cond] >= reg.condition[cond]:
-                                SCORES[j] += 1  # Coucou c'est moi e
+                            if ressR[cond]/(0.7*len(R)) + ressS[cond]*7/len(S) + mervRegion[cond] >= reg.condition[cond]:
+                                SCORES[j] += 2.71  # Coucou c'est moi e
             else:
-                SCORES[i] += 1
+                SCORES[i] += 2
         
         R.pop(SCORES.index(min(SCORES)))
         SCORES.pop(SCORES.index(min(SCORES)))
@@ -171,6 +172,6 @@ def Selection(R, S):
         return ReductionRegion(R,S,10,RESS)
 
     elif len(R) >= 11 and len(S) >= 8:
-        return ReductionTotale(R,S,11,9)
+        return ReductionTotale(R,S,10,7)
     else: 
         return R,S # Part dans RechercheGlouton

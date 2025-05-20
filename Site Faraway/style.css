@@ -1,0 +1,242 @@
+
+body {
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    font-family:Arial;
+    background-color: rgb(248, 234, 244);
+}
+
+header {
+    height: 80px;
+    display: flex;
+    background: linear-gradient(to right,#fcfbf9ff,rgb(122, 45, 103)) ;
+    align-items: center;
+    text-align: center;         
+    justify-content: center;
+    
+}
+
+header img {
+    height: 60px;
+    width: 70px;
+    padding: 10px 10px;
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+    border-radius: 25%;
+    
+}
+
+header h1 {
+    font-size: 30px;
+
+    color: rgb(71, 31, 66);
+    margin: 0;
+}
+
+nav {
+    height: 30px;
+    background-color: rgb(228, 204, 219);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0 30px;
+    line-height: 29px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(74, 3, 56);
+}
+
+nav ul li:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    height: 35px;
+    width: 100vw;
+    
+    background-color: rgb(188, 161, 178);
+    text-align: center;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+footer p {
+    color:rgb(50, 2, 38);
+    margin: 15px;
+    font-size: 14px;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 145px);
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+main article { 
+    display: flex;
+    flex-direction: row;
+
+}
+
+.formation {
+    padding: 0 20px;
+    width: 400px;
+    background-color: wheat;
+    border-radius: 20px;
+}
+
+.espace {
+    width: 10px;
+}
+
+.hobbies {
+    padding: 0 20px;
+    width: 400px;
+    background-color: moccasin;
+    border-radius: 20px;
+}
+
+.langues { 
+    padding: 0 20px;
+    width: 850px;
+    background-color: lemonchiffon;
+    border-radius: 20px;
+}
+
+.espace2 {
+    height: 20px;
+}
+
+.resultats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: burlywood;
+    min-width: 1000px;
+}
+
+.resultats section {
+    justify-content: space-around;
+    
+
+}
+
+.bac {
+    width: 600px;
+    background-color: wheat;
+    margin: 10px;
+    margin-right: 40px;
+    padding: 10px;
+}
+
+.UA {
+    width: 600px;
+    background-color: papayawhip;
+    margin: 10px;
+    padding: 10px;
+}
+
+.TitresTab {
+    font-size: 30px;
+    margin-left: 40px;
+    color: darkslategray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.TAB {
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+th {
+    padding-top: 5px;
+    padding-left: 10px;
+    
+}
+
+td {
+    padding-top: 5px;
+    padding-left: 10px;
+
+}
+
+.droite {
+    text-align: right;
+}
+
+.gras {
+    font-weight: bold;
+}
+
+.TAB tr:nth-child(even) {
+    background-color: DarkSlateGray;
+    color : white;
+}
+
+.TAB tbody tr:nth-child(odd) {
+    background-color: #844;
+    color : white;
+}
+
+tfoot {
+    background-color: #26619c;
+    color : white;
+}
+
+.speciale {
+    background-color: wheat;
+    color : black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
