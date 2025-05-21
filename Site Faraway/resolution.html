@@ -30,7 +30,64 @@
             </ul>
         </nav>
         <main>
-        
+            <section>
+                <h2>Problématiques du sujet</h2>
+                <p class="alinea"><b>Nombre de paramètres : </b>Un problème majeur du projet est le nombre très élevé de paramètres à regarder. 
+                    Les cartes, en particulier les régions, ont beaucoup de conditions à prendre en compte lorsqu'on
+                cherche à compter combien de points elles rapportent. C'est pourquoi trouver une structure de données
+             permettant de représenter toutes les cartes de la même manière a été assez complexe.</p>
+                <p class="alinea"><b>Combinatoire : </b>Si on parle carrément de maths pour essayer de déterminer le nombre
+                de possibilités du problème pour une instance donnée. Comme dit précédemment, vu que l'ordre des régions 
+                est important, cela rend les nombres très grands. On sait qu'on veut 8 cartes régions parmi les n qu'on 
+                va nous fournir, et vu que l'ordre compte, boum, grâce à la combinatoire on sait que ça nous fait 
+                <math><mfrac><mi>n!</mi><mi>(n-8)!</mi></mfrac></math>
+                 possibilités. Autant dire que ce nombre devient vraiment gigantesque dès que n devient grand. 
+                Et c'est sans compter les sanctuaires ! Car si vraiment on veut regarder tous les cas (genre en brute force),
+                bah faut multiplier chaque permutations de régions par toutes les combinaisons de p sanctuaires
+                parmi les m qu'on nous fournit au départ. Et, au passage, p est un nombre qu'on peut pas déterminer 
+                puisque le nombre de sanctuaires dépend du nombre de couples ordonnés de régions, donc il change à chaque fois.
+                On sait juste que p est compris entre 0 et 7. Mais bref pour les sanctuaires, le fait d'en prendre p parmi m nous donne 
+                <math><mfrac><mi>m!</mi><mi>p!(m-p)!</mi></mfrac></math> possibilités. Ce nombre est donc multiplié 
+                avec le nombre de permutations des régions pour un total de : 
+                <math><mfrac><mi>n!m!</mi><mi>p!(m-p)!(n-8)!</mi></mfrac></math> 
+                <br/>Ce nombre vaut ≈100 000 000 rien que pour 10 régions et 8 sanctuaires.
+                <br/>Et ça passe à ≈2000 milliards pour 20 régions et 15 sanctuaires, alors imaginez pour tout le jeu 
+                (68 régions et 45 sanctuaires).
+                </p> 
+                <p class="alinea"><b>Inéficacité du brute force : </b>Ces problèmes nous ramènent donc à la réalité, 
+                qui est d'une grande tristesse : impossible de tout tester ! Et par conséquent impossible de trouver la meilleure 
+                solution à coup sûr. Donc on a dû réfléchir à un algo qui n'allait pas tout tester, mais essayer de trouver 
+                une solution à peu près passable. </p>
+            </section>
+
+            <section>
+                <h2>Notre algorithme</h2>
+                <p class="alinea">La solution que nous proposons est en réalité une des plus simples, 
+                mais est aussi très arbitraire.</p>
+                <p class="alinea">Le principe est le suivant : nous avons d'abord programmer un algorithme 
+                de force brute, donc qui teste tout. Notre but était de déterminer quelles étaient ses limites. C'est 
+                à dire savoir à partir de combien de cartes le temps de calcul excède 1 minute.
+                </p>
+               
+                
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </main>
 
         <footer>
