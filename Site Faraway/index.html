@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 
 <html dir="ltr" lang="fr-FR">
-<!-- entete -->
-<head>
-    <meta charset="utf-8" >
-    <meta name="Author" content="Cyril - Lilou">
-    <meta name="Description" content="Site Faraway Concrétisation">
+    <!-- entete -->
+    <head>
+        <meta charset="utf-8" >
+        <meta name="Author" content="Cyril - Lilou">
+        <meta name="Description" content="Site Faraway Concrétisation">
 
-    <link rel="icon" href="Logo.png">
-    <title>Faraway - AncelinEscoms</title>
+        <link rel="icon" href="Logo.png">
+        <title>Faraway - AncelinEscoms</title>
+        
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
     
-    <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<!-- contenu de la page -->
-
-<body>
-    <header>
-        <img alt="" src="Logo.png"   >
-        <h1>Projet Concrétisation - Faraway</h1>
-    
-    </header>
-    <nav> 
-        <ul>
-            <li><a href="index.html">Sujet</a></li>
-            <li><a href="resolution.html">Méthode de Résolution</a></li>
-            <li><a href="resultats.html">Résultats</a></li>
-            <li><a href="end.html">Épilogue</a></li>
-
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Jeu du Faraway</h2>
-            <p class="alinea">Faraway est un jeu paru en 2023, conçu pour 2 à 5 joueurs. Il se compose de 68 cartes Région et de 45 cartes
-                Sanctuaire. </p>
-            <p class="alinea">Au cours des 8 tours que dure une partie, chaque joueur pose une carte Région — accompagnée,
-                sous condition, d’une carte Sanctuaire. Les joueurs construisent ainsi un tableau personnel de 8 cartes Région,
-                dont l’ordre de pose est essentiel pour le décompte des points.</p> 
-            <p class="alinea">Ce tableau est enrichi par les cartes Sanctuaire
-                (jusqu’à 7), dont l’ordre de pose, en revanche, n’a pas d’importance. Le but du jeu est de construire un tableau
-                de cartes valant le maximum de points, en fonction des cartes que les joueurs ont eu l’occasion d’acquérir en
-                cours de partie. </p>
-            
-
-
-        </section>
-        <section>
-            <h2>Projet</h2>
-            <p>
-                Ce projet n’est pas dédié à implémenter le jeu Faraway mais à essayer de construire le tableau de cartes
-                optimal en fonction d’un ensemble de cartes à disposition.
-                Les 68 cartes Région sont numérotées de 1 à 68, et les cartes Sanctuaire de 101 à 145. Les cartes ont des
-                attributs spécifiques :</p>
+    <!-- contenu de la page -->
+    <body>
+        <header>
+            <img alt="" src="Logo.png"   >
+            <h1>Projet Concrétisation - Faraway</h1>
+        
+        </header>
+        <nav> 
             <ul>
-                <li>Toutes les cartes Région, ainsi que certaines cartes Sanctuaire, possèdent une couleur parmi rouge,
-                    bleu, vert ou jaune.</li>
-                <li>Les cartes Région 20 à 40, ainsi que quatre cartes Sanctuaire, possèdent une icône nuit.</li>
-                <li>Certaines cartes possèdent une icône indice.</li>
-                <li>Certaines cartes comportent une ou plusieurs merveilles. Il existe trois types de merveilles : pierre,
-                    chimère et chardon.</li>
-                <li>Le score d’une carte est fixe ou bien déterminé au moyen d’une formule tenant compte des autres cartes
-                    du tableau.</li>
+                <li><a href="index.html">Sujet</a></li>
+                <li><a href="resolution.html">Méthode de Résolution</a></li>
+                <li><a href="resultats.html">Résultats</a></li>
+                <li><a href="end.html">Épilogue</a></li>
+
             </ul>
-            <p class="alinea">
-                On appelle ensemble un ensemble
-                de quatre cartes composé d’une carte rouge, une carte bleue, une carte verte et une carte jaune.
-                Un tableau est donc composé de 8 cartes Région placées en position 1 à 8, puis complétées de cartes
-                Sanctuaire. Le nombre de cartes Sanctuaire est égal au nombre de cartes Région qui suivent immédiatement
-                une carte Région de numéro inférieur. Pour calculer le score d’une carte Région, on doit ignorer toutes les
-                cartes Région positionnées avant elle. Autrement dit, les attributs pris en compte pour le calcul du score d’une
-                carte Région (y compris sa condition) sont ceux de la carte elle-même, des cartes Région placées après elle,
-                et des cartes Sanctuaire. Le score des cartes Sanctuaire se base sur l’ensemble du tableau (cartes Région et
-                Sanctuaire).</p>
-            <p class="alinea">
-                <b>Le problème consiste à trouver le meilleur tableau possible</b>, étant donné un sous-ensemble de cartes à
-                disposition parmi les 68 cartes Région et les 45 cartes Sanctuaire. On appelle instance un fichier texte d’entrée
-                comportant, à la suite, les numéros des cartes pouvant être utilisées dans le tableau.
-                </p>
-        </section>
-    </main>
-
-    <footer>
-        <p> © 2025 - Cyril Ancelin, Lilou Escoms</p>
-    </footer>
-</body>
+        </nav>
+        <main>
+            <section>
+                <h2>Jeu du Faraway</h2>
+                <p class="alinea">Faraway est un jeu paru en 2023, conçu pour 2 à 5 joueurs. Il se compose de 68 cartes Région et de 45 cartes
+                    Sanctuaire. </p>
+                <p class="alinea">Au cours des 8 tours que dure une partie, chaque joueur pose une carte Région — accompagnée,
+                    sous condition, d’une carte Sanctuaire. Les joueurs construisent ainsi un tableau personnel de 8 cartes Région,
+                    dont l’ordre de pose est essentiel pour le décompte des points.</p> 
+                <p class="alinea">Ce tableau est enrichi par les cartes Sanctuaire
+                    (jusqu’à 7), dont l’ordre de pose, en revanche, n’a pas d’importance. Le but du jeu est de construire un tableau
+                    de cartes valant le maximum de points, en fonction des cartes que les joueurs ont eu l’occasion d’acquérir en
+                    cours de partie. </p>
+                
 
 
+            </section>
+            <section>
+                <h2>Projet</h2>
+                <p>
+                    Ce projet n’est pas dédié à implémenter le jeu Faraway mais à essayer de construire le tableau de cartes
+                    optimal en fonction d’un ensemble de cartes à disposition.
+                    Les 68 cartes Région sont numérotées de 1 à 68, et les cartes Sanctuaire de 101 à 145. Les cartes ont des
+                    attributs spécifiques :</p>
+                <ul>
+                    <li>Toutes les cartes Région, ainsi que certaines cartes Sanctuaire, possèdent une couleur parmi rouge,
+                        bleu, vert ou jaune.</li>
+                    <li>Les cartes Région 20 à 40, ainsi que quatre cartes Sanctuaire, possèdent une icône nuit.</li>
+                    <li>Certaines cartes possèdent une icône indice.</li>
+                    <li>Certaines cartes comportent une ou plusieurs merveilles. Il existe trois types de merveilles : pierre,
+                        chimère et chardon.</li>
+                    <li>Le score d’une carte est fixe ou bien déterminé au moyen d’une formule tenant compte des autres cartes
+                        du tableau.</li>
+                </ul>
+                <p class="alinea">
+                    On appelle ensemble un ensemble
+                    de quatre cartes composé d’une carte rouge, une carte bleue, une carte verte et une carte jaune.
+                    Un tableau est donc composé de 8 cartes Région placées en position 1 à 8, puis complétées de cartes
+                    Sanctuaire. Le nombre de cartes Sanctuaire est égal au nombre de cartes Région qui suivent immédiatement
+                    une carte Région de numéro inférieur. Pour calculer le score d’une carte Région, on doit ignorer toutes les
+                    cartes Région positionnées avant elle. Autrement dit, les attributs pris en compte pour le calcul du score d’une
+                    carte Région (y compris sa condition) sont ceux de la carte elle-même, des cartes Région placées après elle,
+                    et des cartes Sanctuaire. Le score des cartes Sanctuaire se base sur l’ensemble du tableau (cartes Région et
+                    Sanctuaire).</p>
+                <p class="alinea">
+                    <b>Le problème consiste à trouver le meilleur tableau possible</b>, étant donné un sous-ensemble de cartes à
+                    disposition parmi les 68 cartes Région et les 45 cartes Sanctuaire. On appelle instance un fichier texte d’entrée
+                    comportant, à la suite, les numéros des cartes pouvant être utilisées dans le tableau.
+                    </p>
+            </section>
+        </main>
 
-
-
-
+        <footer>
+            <p> © 2025 - Cyril Ancelin, Lilou Escoms</p>
+        </footer>
+    </body>
 </html>
