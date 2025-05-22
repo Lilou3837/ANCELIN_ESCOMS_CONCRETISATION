@@ -9,10 +9,12 @@ def Lecture(chemin: str):
     Region = []
     Sanctuaire = []
     for n in TAB:
-        if int(n) < 90:
-            Region.append(int(n))
-        else:
-            Sanctuaire.append(int(n))
+        try : 
+            if int(n) < 90:
+                Region.append(int(n))
+            else:
+                Sanctuaire.append(int(n))
+        except : pass
 
     fichier.close()
     return Region, Sanctuaire
