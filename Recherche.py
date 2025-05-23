@@ -20,7 +20,7 @@ def RecherchePresqueGlouton(R, S):
         if couples_ordonnais>=nbSancRequis:
             for san in combi_sanctu[couples_ordonnais-nbSancRequis]:
                 tour+=1
-                if tour%2!=0:
+                if tour%5==0:
                     pts = comptage(re,san)
                     if pts > maximum[2]:
                         maximum = [re, san, pts]

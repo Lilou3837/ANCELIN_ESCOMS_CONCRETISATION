@@ -1,7 +1,7 @@
 from time import perf_counter
 start=perf_counter()
 from LectureInstance import *
-from SelectionRandom import Selection
+from SelectionTest import Selection
 from Recherche import RecherchePresqueGlouton
 from random import uniform
 from count import comptage
@@ -29,7 +29,7 @@ def FonctionMere(instance: str):
     nb_tours=0
     STOCK_REGIONS={}
     STOCK_SANCTUAIRES={}
-    while perf_counter()-start < 30 : 
+    while perf_counter()-start < 300 : 
         I=[1,10]
         R1=[k for k in R0]
         S1=[k for k in S0]
@@ -52,7 +52,7 @@ def FonctionMere(instance: str):
             print('new :',m)
         if Max[2]>m[2] : m=[k for k in Max]
     
-    print('On prend les meilleurs !')
+    """print('On prend les meilleurs !')
     R,S=OnPrendLesBest(STOCK_REGIONS,STOCK_SANCTUAIRES)
     R0 = [k for k in R]
     S0 = [k for k in S]
@@ -140,7 +140,7 @@ def FonctionMere(instance: str):
         if m!=new :
             new=m
             print('new :',m)
-        if Max[2]>m[2] : m=[k for k in Max]
+        if Max[2]>m[2] : m=[k for k in Max]"""
 
 
     #Ecriture(f'Competitions_Results/{NomFichier}', (R0, S0), (m, temps))
