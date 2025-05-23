@@ -1,5 +1,6 @@
 from cards import *
 from random import uniform
+from math import log
 
 def CollecteRess(TAB):
     ressources ={'r' : 0,
@@ -75,6 +76,10 @@ def ReductionSanctu(R, S, ns, ress,I):
                     ens = min([ress['r']*10/len(R), ress['b']*10/len(R), ress['j']*10/len(R), ress['v']*10/len(R)])
                     SCORES[i] += sanc.score[parqqch] * ens*uniform(I[0],I[1])
         
+        ##### TRUC DE CON
+        for i in range(3,len(SCORES)):
+            SCORES[i] *= 1/log(i)
+
         S.pop(SCORES.index(min(SCORES)))
         SCORES.pop(SCORES.index(min(SCORES)))
 
@@ -135,6 +140,10 @@ def ReductionRegion(R, S, nr, ressS,I):
                                 SCORES[j]+=1*uniform(I[0],I[1])
             else:
                 SCORES[i] += 1
+
+        ##### TRUC DE CON
+        for i in range(3,len(SCORES)):
+            SCORES[i] *= 1/log(i)
         
         R.pop(SCORES.index(min(SCORES)))
         SCORES.pop(SCORES.index(min(SCORES)))
@@ -164,15 +173,8 @@ def Selection(R, S,I):
     R : Régions, S : Sanctuaires
     """
 
-    # Conditions pour savoir vers quoi on va
-    
-    if len(R) == 8 and len(S) >= 8:
-        RESS=CollecteRess(R)
-        return ReductionSanctu(R,S,7,RESS,I)
-    elif len(R) >=9 and len(S) ==7:
-        RESS=CollecteRess(S)
-        return ReductionRegion(R,S,8,RESS,I)
-    elif len(R) >= 9 and len(S) >= 8:
+    # Réduc
+    if len(R) >= 9 or len(S) >= 8:
         return ReductionTotale(R,S,8,7,I)
     else: 
         return R,S # Part dans RechercheGlouton
