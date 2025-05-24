@@ -4,6 +4,10 @@ from Selection import Selection
 from Recherche import RecherchePresqueGlouton
 
 def OnPrendLesBest(SR,SS):
+    """ 
+    Fonction qui garde seulement les régions et sanctuaires qui ont permit d'atteindre des
+    scores au dessus de la moyenne de tous les scores
+    """
     moyenneScores = sum(SR)/len(SR)
     NewR = []
     NewS = []
@@ -17,12 +21,15 @@ def OnPrendLesBest(SR,SS):
     
     return NewR,NewS
 
-
 def FonctionMere(instance: str):
+    """ 
+    instance : Chaine de caractere du fichier instance qui doit être examiné.
+    Résultat écrit dans le dossier Results.
+    """
     start=perf_counter()
     R,S, nbCarte= Lecture(instance)
 
-    NomFichier = f"{instance[13:-4]}_{nbCarte}_result.txt"
+    EmplacementResult = f"../Results/{instance[16:-4]}_{nbCarte}_result.txt"
     m=[42,42,0]
     new=m
     nb_tours=0
@@ -31,7 +38,7 @@ def FonctionMere(instance: str):
     STOCK_REGIONS={}
     STOCK_SANCTUAIRES={}
 
-    for limit in [25,45,60]:
+    for limit in [3,6,9]:
         R0 = [k for k in R]
         S0 = [k for k in S]
 
@@ -64,19 +71,25 @@ def FonctionMere(instance: str):
         
         R,S=OnPrendLesBest(STOCK_REGIONS,STOCK_SANCTUAIRES)
 
-    Ecriture(NomFichier, (R0, S0),m)
+    Ecriture(EmplacementResult, (R0, S0),m)
     print(perf_counter()-start)
     print("Meilleur score trouvé :",m)
     
 
-#FonctionMere('Competitions/competition_06.txt')
+#FonctionMere('../Instances/votre_fichier.txt')
 
+"""
+--- 1) Enregistrer votre fichier instance dans le répertoire Instances
+--- 2) Remplacer 'votre_fichier' par le nom du fichier texte de votre instance.
+--- 3) Faîtes attention à bien être placé dans le repertoire ProgrammesPython pour éxecuter main.py
+--- 4) Votre fichier résultat sera écrit dans le répertoire Results
+"""
 
 """Cette nuit : 
 """
 for i in range(1,10):
-    FonctionMere(f'Competitions/competition_0{i}.txt')
+    FonctionMere(f'../Competitions/competition_0{i}.txt')
 for i in range(10,16):
-    FonctionMere(f'Competitions/competition_{i}.txt')
+    FonctionMere(f'../Competitions/competition_{i}.txt')
     """
 """
