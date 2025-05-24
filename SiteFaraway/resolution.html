@@ -62,19 +62,76 @@
 
             <section>
                 <h2>Notre algorithme</h2>
-                <p class="alinea">La solution que nous proposons est en réalité une des plus simples, 
-                mais est aussi très arbitraire.</p>
-                <p class="alinea">Le principe est le suivant : nous avons d'abord programmer un algorithme 
-                de force brute, donc qui teste tout. Notre but était de déterminer quelles étaient ses limites. C'est 
-                à dire savoir à partir de combien de cartes le temps de calcul excède 1 minute. Cela nous a donné notre 
-                fichier : <a href="OrdresDeGrandeur.txt">Ordres de grandeur</a> où sont marqués les différents temps de calculs
-                pour des instances données, et jusqu'où on peut aller.
+                <p class="alinea">La solution que nous proposons repose sur le principe suivant :</p>
+                <p class="alinea">On nous donne une instance sur laquelle pendant 25s, on va selectionné des groupes 
+                    de 8 régions et 7 sanctuaires en fonction des liens que les cartes ont entre elles 
+                    (on reviendra plus tard sur les critères de sélection). Ces groupes passent tour à tour dans un algorithme 
+                    de quasi force brute qui détermine la meilleure façon d'arranger ces cartes. Tous ces groupes de 8_7 
+                    ainsi que leur score seront stockés au fur et à mesure.
+                    Ensuite, on regarde dans ce gros stock les scores qui sont au dessus de la moyenne de tous les scores 
+                    et on garde les cartes qui ont permis de les atteindre.
+                    Et on recommence ce qu'on a fait avant sur ces cartes là pendant 20s. Après ces 20s on sélectionnne à 
+                    nouveau les meilleures cartes, puis on part sur un dernier cycle de 15s, pour un total de 1 minute.
+                    À la fin, on renvoie le meilleur score trouvé sur toute la minute.
                 </p>
-                <p class="alinea">heh
-                </p>
-                
             </section>
 
+            <section>
+                <h2>Détails par module</h2>
+                <p>Nous allons maintenant détailler à quoi sert (en gros) chaque module du dossier ProgrammesPython.
+                    Vous pouvez cliquer sur les titres pour visualiser les scripts python.
+                </p>
+                
+                <h3 class="center"><a target='_blank' href="liens/cards.py" style="text-decoration: none; color:black">Cards</a></h3>
+                <p class="alinea">Ce module génère la classe Card qui permet de <b>représenter les cartes</b>. Ces objets sont 
+                    stockés dans un tableau où chaque case d'indice i stocke la carte numérotée i.
+                </p>
+
+                <h3 class="center"><a target='_blank' href="liens/count.py" style="text-decoration: none; color:black">Count</a></h3>
+                <p class="alinea">Count gère toutes les fonctions qui permettent de <b>compter</b> le score d'une main 
+                    donnée. 
+                    Cela se fait de la même manière utilisée dans l'exemple du sujet : d'abord ajouter les ressourses des sanctuaires, ensuite compter 
+                    les points des régions une à une en ajoutant leurs ressourses au fur et à mesure.
+                    Enfin on compte les points des sanctuaires en considérant l'entièreté des ressourses.
+                </p>
+
+                <h3 class="center">
+                <a target='_blank' href="liens/lecture_ecriture_instance.py" style="text-decoration: none; color:black">Lecture et Écriture</a></h3>
+                <p class="alinea">Lecture permet de lire une instance (fichier texte) et de <b>renvoyer les tableaux de régions et de 
+                    sanctuaires correspondant</b>. Ces tableaux seront ensuite envoyés dans la suite du programme.
+                    <br/>Écriture permet, pour un tableau de cartes et un score donné, d'<b>écrire ce résultat dans un fichier texte</b> (dans le 
+                    dossier Results).
+                </p>
+
+                <h3 class="center">
+                    <a target='_blank' href="liens/selection.py" style="text-decoration: none; color:black">Selection</a></h3>
+                    <p class="alinea">Selection permet, via plusieurs fonctions, de <b>réduire la taille d'une instance à une taille 
+                        raisonnable de 8_7</b>. Pour cela, on regarde les liens que les cartes ont entre elles et on attribue des points 
+                        aux cartes en fonction de ces liens. Exemple : si une carte marque des points par pierre, alors les autres cartes 
+                        qui apportent des pierres marqueront des points. 
+                        <br/>Cependant, pour que ça colle vraiment à la réalité il faudrait instorer un ordre de priorité 
+                        extrêmement précis sur tous les paramètres du jeu, en procédant à une étude probabiliste très 
+                        complexe et très longue du jeu. Ceci étant impossible, du moins dans le temps qui nous était donné, 
+                        on teste plusieurs ordres de priorité aléatoires en espérant s'approcher au maximum de l'ordre optimal 
+                        durant les 60 secondes de run.
+                    </p>
+
+                <h3 class="center">
+                    <a target='_blank' href="liens/recherche.py" style="text-decoration: none; color:black">Recherche</a></h3>
+                    <p class="alinea">Recherche possède une fonction, RecherchePresqueGlouton, qui <b>teste toutes les façons 
+                        d'arranger une main de 8_7 et renvoie la meilleure</b> (celle qui donne le meilleur score). Mais en fait pas vraiment. Ça c'était avant quand c'était totalement du glouton.
+                        Maintenant il y a 2 "restrictions" : déjà on impose d'avoir 5 sanctuaires minimum. C'est à dire que si une 
+                        permutation de régions possède moins de 5 couples ordonnés, on ne regarde même pas les combinaisons des 
+                        sanctuaires. On fait ça parce qu'on a vu que la majorité des meilleures solutions avaient au moins 5 sanctuaires.
+                        En plus de ça, on teste qu'une combinaisons de sanctuaires sur 2, pour "gagner" du temps. On peut se le permettre car 
+                        il y a souvent plusieurs façons d'arriver à un score avec des sanctuaires différents.
+                    </p>
+                
+                <h3 class="center">
+                    <a target='_blank' href="liens/main.py" style="text-decoration: none; color:black">Main</a></h3>
+                    <p class="alinea">Main utilise tous les modules ci-dessus afin de suivre la méthode présentée plus haut.
+                    </p>
+            </section>
 
 
 

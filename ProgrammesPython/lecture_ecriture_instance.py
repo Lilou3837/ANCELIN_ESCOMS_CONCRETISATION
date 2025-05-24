@@ -1,7 +1,7 @@
 def Lecture(chemin: str):
     """
     Lis une instance et renvoie les 2 tableaux de régions et de sanctuaires
-    chemin : str, nom du fichier.txt
+    chemin : str, ../Instances/nom du fichier.txt
     """
     fichier = open(chemin, "r")
     chaine=fichier.read()
@@ -22,7 +22,7 @@ def Lecture(chemin: str):
 
 def Ecriture(fichierEcriture: str, instance: tuple, resultat: list):
     """
-    ficherEcriture : str, chemin du fichier
+    ficherEcriture : str, ../Results/nomfichier.txt
     instance : tuple de 2 list avec régions et sanctuaires
     resultat : list maximum (regions, sanctuaires, score)
     """

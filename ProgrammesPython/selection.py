@@ -26,7 +26,6 @@ def CollecteRess(TAB):
 
 
 def ReductionSanctu(R, S, ns, ress,I):
-
     if len(S) == ns: # Arrêt
         return R,S
     else:
@@ -87,7 +86,6 @@ def ReductionSanctu(R, S, ns, ress,I):
 
 
 def ReductionRegion(R, S, nr, ressS,I):
-
     if len(R) == nr: # Arrêt
         return R,S
     else:
@@ -165,7 +163,6 @@ def ReductionTotale(R, S, nr, ns,I):
         RESS=CollecteRess(R)
         R,S = ReductionSanctu(R,S,len(S)-1,RESS,I)
         return ReductionTotale(R,S,nr,ns,I) 
-
 
 
 def Selection(R, S,I):

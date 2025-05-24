@@ -3,7 +3,9 @@ body {
     margin:0;
     display: flex;
     flex-direction: column;
-    font-family:'Trebuchet MS';
+    text-align: justify;
+    font-size: 17px;
+    font-family:'Trebuchet MS', 'Arial';
     background-color: rgb(244, 234, 248);
 }
 
@@ -34,7 +36,8 @@ header img {
 
 header h1 {
     font-size: 30px;
-    font-family: 'Arial Black';
+    font-family: 'Arial';
+    font-weight: bolder;
     color: rgb(49, 18, 45);
     margin: 0;
 }

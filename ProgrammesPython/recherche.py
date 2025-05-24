@@ -1,12 +1,13 @@
 from count import comptage
-from itertools import permutations,combinations
+from itertools import permutations,combinations # Merci à itertools de nous permettre d'éviter de programmer ces 
+                                                # fonctions horribles
 
 def RecherchePresqueGlouton(R, S):
     """
-    Prend une instance et recherche de manière gloutonne la solution optimale pendant 1 min (?)
+    Prend une instance et recherche de manière presque gloutonne la meilleure solution de 8 régions et 7 sactuaires 
     """
     maximum=[42,42,0]
-    nbSancRequis = 5
+    nbSancRequis = 5 # On oblige au moins 5 couples ordonnés vu qu'on a vu qu'en dessous c'était vraiment pas ouf
     combi_sanctu=[tuple(combinations(S,i)) for i in range(nbSancRequis,8)]
     permu_region=permutations(R,8)
     tour=1
