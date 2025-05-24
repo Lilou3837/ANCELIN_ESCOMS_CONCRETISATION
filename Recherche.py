@@ -1,5 +1,4 @@
 from count import comptage
-from time import perf_counter
 from itertools import permutations,combinations
 
 def RecherchePresqueGlouton(R, S):
@@ -8,7 +7,6 @@ def RecherchePresqueGlouton(R, S):
     """
     maximum=[42,42,0]
     nbSancRequis = 5
-    start = perf_counter()
     combi_sanctu=[tuple(combinations(S,i)) for i in range(nbSancRequis,8)]
     permu_region=permutations(R,8)
     tour=1
@@ -24,5 +22,4 @@ def RecherchePresqueGlouton(R, S):
                     pts = comptage(re,san)
                     if pts > maximum[2]:
                         maximum = [re, san, pts]
-    timeh = perf_counter()-start
-    return maximum, timeh
+    return maximum

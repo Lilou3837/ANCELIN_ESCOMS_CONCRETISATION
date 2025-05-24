@@ -17,19 +17,18 @@ def Lecture(chemin: str):
         except : pass
 
     fichier.close()
-    return Region, Sanctuaire
+    return Region, Sanctuaire, f"{len(Region)}_{len(Sanctuaire)}"
 
 
-def Ecriture(fichierEcriture: str, instance: tuple, resultat: tuple):
+def Ecriture(fichierEcriture: str, instance: tuple, resultat: list):
     """
     ficherEcriture : str, chemin du fichier
     instance : tuple de 2 list avec régions et sanctuaires
-    resultat : tuple avec list maximum (regions, sanctuaires, score) puis temps de calcul
+    resultat : list maximum (regions, sanctuaires, score)
     """
     with open(fichierEcriture, "w") as fichier:
         fichier.write("Instance : "+str(len(instance[0]))+"_"+str(len(instance[1]))+"\n"   )
         fichier.write("     Cartes : "+str(instance[0])+" "+str(instance[1])+"\n"   )
-        #fichier.write("     Temps de resolution : "+str(resultat[1])+" secondes\n" )
-        fichier.write("     Score :"+str(resultat[0][2])+"\n" )
-        fichier.write("     Regions :"+str(resultat[0][0])+"\n" )
-        fichier.write("     Sanctuaires :"+str(resultat[0][1])+"\n\n" )
+        fichier.write("     Score :"+str(resultat[2])+"\n" )
+        fichier.write("     Regions :"+str(resultat[0])+"\n" )
+        fichier.write("     Sanctuaires :"+str(resultat[1])+"\n\n" )
