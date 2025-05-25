@@ -2,6 +2,7 @@ from time import perf_counter
 from lecture_ecriture_instance import *
 from selection import Selection
 from recherche import RecherchePresqueGlouton
+from random import choice
 
 def OnPrendLesBest(SR,SS):
     """ 
@@ -15,7 +16,6 @@ def OnPrendLesBest(SR,SS):
         if score > moyenneScores:
             for carteR in SR[score]:
                 if carteR not in NewR : NewR.append(carteR)
-        if score > moyenneScores or len(NewS)<7:
             for carteS in SS[score]:
                 if carteS not in NewS : NewS.append(carteS)
     
@@ -28,8 +28,10 @@ def FonctionMere(instance: str):
     """
     start=perf_counter()
     R,S, nbCarte= Lecture(instance)
+    RInit = [k for k in R]
+    SInit = [k for k in S]
 
-    EmplacementResult = f"../Results/{instance[16:-4]}_{nbCarte}_result.txt"
+    EmplacementResult = f"../Results/{instance[13:-4]}_{nbCarte}_result.txt"
     m=[42,42,0]
     new=m
     nb_tours=0
@@ -38,7 +40,7 @@ def FonctionMere(instance: str):
     STOCK_REGIONS={}
     STOCK_SANCTUAIRES={}
 
-    for limit in [3,6,9]:
+    for limit in [6,9,12]:
         R0 = [k for k in R]
         S0 = [k for k in S]
 
@@ -70,26 +72,21 @@ def FonctionMere(instance: str):
 
         
         R,S=OnPrendLesBest(STOCK_REGIONS,STOCK_SANCTUAIRES)
+        if len(S)<7 : 
+            while len(S)<7 :
+                element = choice(S0)
+                if element not in S : S.append(element)
 
-    Ecriture(EmplacementResult, (R0, S0),m)
+    Ecriture(EmplacementResult, (RInit, SInit),m)
     print(perf_counter()-start)
     print("Meilleur score trouvé :",m)
     
 
-#FonctionMere('../Instances/votre_fichier.txt')
+FonctionMere('../Instances/competition_01.txt')
 
 """
---- 1) Enregistrer votre fichier instance dans le répertoire Instances
---- 2) Remplacer 'votre_fichier' par le nom du fichier texte de votre instance.
+- 1) Enregistrer votre fichier instance dans le répertoire Instances
+-- 2) Remplacer 'votre_fichier' par le nom du fichier texte de votre instance dans la ligne de commande au dessus.
 --- 3) Faîtes attention à bien être placé dans le repertoire ProgrammesPython pour éxecuter main.py
---- 4) Votre fichier résultat sera écrit dans le répertoire Results
-"""
-
-"""Cette nuit : 
-"""
-for i in range(1,10):
-    FonctionMere(f'../Competitions/competition_0{i}.txt')
-for i in range(10,16):
-    FonctionMere(f'../Competitions/competition_{i}.txt')
-    """
+---- 4) Votre fichier résultat sera écrit dans le répertoire Results
 """
