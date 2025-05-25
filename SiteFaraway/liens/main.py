@@ -40,7 +40,7 @@ def FonctionMere(instance: str):
     STOCK_REGIONS={}
     STOCK_SANCTUAIRES={}
 
-    for limit in [6,9,12]:
+    for limit in [25,45,60]:
         R0 = [k for k in R]
         S0 = [k for k in S]
 
@@ -78,11 +78,10 @@ def FonctionMere(instance: str):
                 if element not in S : S.append(element)
 
     Ecriture(EmplacementResult, (RInit, SInit),m)
-    print(perf_counter()-start)
-    print("Meilleur score trouvé :",m)
+    print("Meilleur score trouvé en une minute :",m)
     
 
-FonctionMere('../Instances/competition_01.txt')
+FonctionMere('../Instances/votre_fichier.txt')
 
 """
 - 1) Enregistrer votre fichier instance dans le répertoire Instances
