@@ -10,7 +10,7 @@
         <link rel="icon" href="Logo.png">
         <title>Faraway - AncelinEscoms</title>
         
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" >
     </head>
     
     <!-- contenu de la page -->
@@ -50,8 +50,8 @@
                 <math><mfrac><mi>m!</mi><mi>p!(m-p)!</mi></mfrac></math> possibilités. Ce nombre est donc multiplié 
                 avec le nombre de permutations des régions pour un total de : 
                 <math><mfrac><mi>n!m!</mi><mi>p!(m-p)!(n-8)!</mi></mfrac></math> 
-                <br/>Ce nombre vaut ≈100 000 000 rien que pour 10 régions et 8 sanctuaires.
-                <br/>Et ça passe à ≈2000 milliards pour 20 régions et 15 sanctuaires, alors imaginez pour tout le jeu 
+                <br>Ce nombre vaut ≈100 000 000 rien que pour 10 régions et 8 sanctuaires.
+                <br>Et ça passe à ≈2000 milliards pour 20 régions et 15 sanctuaires, alors imaginez pour tout le jeu 
                 (68 régions et 45 sanctuaires).
                 </p> 
                 <p class="alinea"><b>Inéficacité du brute force : </b>Ces problèmes nous ramènent donc à la réalité, 
@@ -99,7 +99,7 @@
                 <a target='_blank' href="liens/lecture_ecriture_instance.py" style="text-decoration: none; color:black">Lecture et Écriture</a></h3>
                 <p class="alinea">Lecture permet de lire une instance (fichier texte) et de <b>renvoyer les tableaux de régions et de 
                     sanctuaires correspondant</b>. Ces tableaux seront ensuite envoyés dans la suite du programme.
-                    <br/>Écriture permet, pour un tableau de cartes et un score donné, d'<b>écrire ce résultat dans un fichier texte</b> (dans le 
+                    <br>Écriture permet, pour un tableau de cartes et un score donné, d'<b>écrire ce résultat dans un fichier texte</b> (dans le 
                     dossier Results).
                 </p>
 
@@ -109,7 +109,7 @@
                         raisonnable de 8_7</b>. Pour cela, on regarde les liens que les cartes ont entre elles et on attribue des points 
                         aux cartes en fonction de ces liens. Exemple : si une carte marque des points par pierre, alors les autres cartes 
                         qui apportent des pierres marqueront des points. 
-                        <br/>Cependant, pour que ça colle vraiment à la réalité il faudrait instorer un ordre de priorité 
+                        <br>Cependant, pour que ça colle vraiment à la réalité il faudrait instorer un ordre de priorité 
                         extrêmement précis sur tous les paramètres du jeu, en procédant à une étude probabiliste très 
                         complexe et très longue du jeu. Ceci étant impossible, du moins dans le temps qui nous était donné, 
                         on teste plusieurs ordres de priorité aléatoires en espérant s'approcher au maximum de l'ordre optimal 
