@@ -3,6 +3,7 @@ from lecture_ecriture_instance import *
 from selection import Selection
 from recherche import RecherchePresqueGlouton
 from random import choice
+import sys
 
 def OnPrendLesBest(SR,SS):
     """ 
@@ -81,7 +82,7 @@ def FonctionMere(instance: str):
     print("Meilleur score trouvé en une minute :",m)
     
 
-FonctionMere('../Instances/votre_fichier.txt')
+FonctionMere(f'../Instances/{sys.argv[1]}')
 
 """
 - 1) Enregistrer votre fichier instance dans le répertoire Instances
